@@ -3,10 +3,11 @@ describe('#visible', function(){
   var template;  
   var ko
   beforeEach(function(done){
-    fixtures.load('knockout.html', 'visible.html', function(){
+    fixtures.load('knockout.html', 'template.html', function(){
       viewModel = fixtures.window().viewModel;
       ko = fixtures.window().ko;
       template = fixtures.window().document.getElementById('template');
+      template.setAttribute('data-visible', 'isVisible');
       done();
     });
   })

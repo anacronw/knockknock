@@ -1,4 +1,4 @@
-describe('#text', function(){
+describe('#html', function(){
   var viewModel;
   var template;  
   var ko
@@ -7,16 +7,17 @@ describe('#text', function(){
       viewModel = fixtures.window().viewModel;
       ko = fixtures.window().ko;
       template = fixtures.window().document.getElementById('template');
-      template.setAttribute('data-text', 'someText');
+      template.setAttribute('data-html', 'someHTML');
       done();
     });
   })
   afterEach(function(){
     fixtures.cleanUp();
   })
-  it('puts the observable text in the element', function(){
-    viewModel.someText = ko.observable('woot!');
+  it('puts observable html string in the element', function(){
+    viewModel.someHTML = ko.observable('<a href="#">hot link</a>');
     ko.applyBindings(viewModel);
-    $(template).should.have.text('woot!');
+    $(template).should.have('a')
+    $(template).should.contain('hot link');
   })
 })
