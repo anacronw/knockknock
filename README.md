@@ -10,3 +10,7 @@ into this:
 ```
 <div data-text="someText" data-class-alert="showAlert" data-class-loading="showLoading"></div>
 ```
+
+License
+==========
+MIT
